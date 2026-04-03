@@ -23,9 +23,26 @@
             margin: 0 auto;
             padding: 20px;
             min-height: 100vh;
+        }
+
+        .header {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
         }
 
         .card {
@@ -184,6 +201,14 @@
 <body>
     <div class="container">
         <div class="card">
+            <div class="header">
+                <div class="logo">FocusPal</div>
+                <nav>
+                    <a href="product/">产品</a>
+                    <a href="faq/">FAQ</a>
+                    <a href="about/">关于</a>
+                </nav>
+            </div>
             <h1>FocusPal</h1>
             <p class="subtitle">专为ADHD设计的智能陪伴伙伴</p>
             
