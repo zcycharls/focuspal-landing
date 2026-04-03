@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusPal - 关于我们</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #4a5568;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 30px 0 20px 0;
+            color: #4a5568;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 20px 0 10px 0;
+            color: #4a5568;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #718096;
+        }
+
+        .mission {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .timeline {
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid #667eea;
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 5px;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .back-home:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <div class="logo">FocusPal</div>
+                <nav>
+                    <a href="index.html">首页</a>
+                    <a href="product.html">产品</a>
+                    <a href="faq.html">FAQ</a>
+                </nav>
+            </div>
+
+            <h1>关于FocusPal</h1>
+            
+            <div class="mission">
+                <h2>我们的使命</h2>
+                <p>帮助ADHD用户克服执行功能障碍，释放他们的创造力和潜力。</p>
+            </div>
+
+            <h2>为什么创建FocusPal？</h2>
+            <p>ADHD不是缺陷，而是一种不同的大脑工作方式。现有的生产力工具大多假设用户具有正常的执行功能，这让ADHD用户感到挫败和无助。</p>
+            <p>FocusPal的诞生源于对这个问题的深刻理解。我们相信，通过专门设计的工具和温和的陪伴，ADHD用户可以更好地管理他们的任务和时间，发挥他们的独特优势。</p>
+
+            <h2>我们的价值观</h2>
+            
+            <h3>理解而非评判</h3>
+            <p>我们理解ADHD用户的挑战，不会对他们进行评判或施加压力。</p>
+            
+            <h3>赋能而非控制</h3>
+            <p>我们的目标是赋能用户，而不是控制他们。用户始终拥有完全的控制权。</p>
+            
+            <h3>包容而非排斥</h3>
+            <p>我们欢迎所有在专注力和执行力方面有困难的人，无论是否有正式诊断。</p>
+
+            <h2>开发路线图</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2026年4月</div>
+                    <p>手动服务验证阶段 - 通过人工陪伴验证核心价值主张</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2026年5月</div>
+                    <p>软件MVP开发 - 开发可工作的移动应用原型</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2026年6月</div>
+                    <p>早期用户测试 - 邀请100名早期用户进行Beta测试</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2026年7月</div>
+                    <p>正式发布 - 向所有用户开放FocusPal服务</p>
+                </div>
+            </div>
+
+            <h2>联系我们</h2>
+            <p>如果你有任何问题、建议或想要参与早期测试，请联系我们：</p>
+            <p><strong>邮箱:</strong> zcycharls@gmail.com</p>
+            <p>我们期待听到你的声音！</p>
+
+            <a href="../" class="back-home">返回首页</a>
+        </div>
+    </div>
+</body>
+</html>
