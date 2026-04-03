@@ -211,9 +211,12 @@
             </div>
 
             <div class="form-group">
-                <label>加入早期测试计划</label>
-                <p style="margin: 10px 0; color: #4a5568;">联系邮箱: <strong>zcycharls@gmail.com</strong></p>
-                <p style="font-size: 0.9rem; color: #718096;">发送邮件标题 "FocusPal早期用户注册" 即可加入！</p>
+                <label for="email">加入早期测试计划</label>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="输入你的邮箱地址" required>
+                    <button onclick="saveEmail()">立即加入</button>
+                </div>
+                <p style="font-size: 0.9rem; margin-top: 10px; color: #718096;">提交后我们会通过 zcycharls@gmail.com 联系你！</p>
             </div>
 
             <div class="early-bird">
@@ -225,6 +228,6 @@
         </div>
     </div>
 
-    <!-- 邮箱联系方式已直接显示在页面上 -->
+    <script src="email-collect.js"></script>
 </body>
 </html>
