@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusPal - 测试表单</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .form-group { margin: 20px 0; }
+        input[type="email"] { padding: 10px; width: 300px; margin-right: 10px; }
+        button { padding: 10px 20px; background: #667eea; color: white; border: none; cursor: pointer; }
+        .result { margin-top: 20px; padding: 10px; background: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>FocusPal 邮箱收集测试</h1>
+    
+    <form id="testForm">
+        <div class="form-group">
+            <label for="email">邮箱地址:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">提交测试</button>
+        </div>
+    </form>
+    
+    <div id="result" class="result" style="display:none;"></div>
+
+    <script>
+        document.getElementById('testForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            
+            // 模拟表单提交
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').innerHTML = 
+                '<strong>测试成功！</strong><br>' +
+                '邮箱: ' + email + '<br>' +
+                '在实际部署中，这个数据会发送到你的Formspree账户。<br><br>' +
+                '<em>记得在正式版本中替换为你的实际Formspree URL</em>';
+        });
+    </script>
+</body>
+</html>

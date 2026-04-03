@@ -1,33 +1,43 @@
-// 简单的邮箱收集脚本（用于本地测试）
-// 在实际部署时，你可能需要使用 Formspree、Netlify Forms 或其他表单服务
-
+// 简单的mailto邮箱收集（无需后端）
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form') || document.querySelector('.input-group');
-    const emailInput = document.getElementById('email');
-    const submitButton = document.querySelector('button[type="submit"]') || document.querySelector('button');
+    // 从config.js获取邮箱地址
+    const contactEmail = typeof FOCUSPAL_CONFIG !== 'undefined' ? 
+        FOCUSPAL_CONFIG.contactEmail : 'your-email@example.com';
     
-    if (submitButton) {
-        submitButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            const email = emailInput.value.trim();
-            
-            if (!email || !email.includes('@')) {
-                alert('请输入有效的邮箱地址');
-                return;
-            }
-            
-            // 这里可以添加实际的表单提交逻辑
-            // 例如：fetch('/api/collect-email', { method: 'POST', body: JSON.stringify({ email }) })
-            
-            // 临时：保存到本地存储（仅用于演示）
-            let collectedEmails = JSON.parse(localStorage.getItem('focuspal_emails') || '[]');
-            if (!collectedEmails.includes(email)) {
-                collectedEmails.push(email);
-                localStorage.setItem('focuspal_emails', JSON.stringify(collectedEmails));
-                alert('感谢注册！我们会尽快与你联系。');
-                emailInput.value = '';
-            } else {
-                alert('你已经注册过了！');
+    window.submitEmail = function() {
+        const emailInput = document.getElementById('email');
+        const userEmail = emailInput.value.trim();
+        
+        if (!userEmail || !userEmail.includes('@')) {
+            alert('请输入有效的邮箱地址');
+            return;
+        }
+        
+        // 使用mailto链接发送邮件
+        const subject = encodeURIComponent('FocusPal早期用户注册');
+        const body = encodeURIComponent(`用户邮箱: ${userEmail}\n\n我想成为FocusPal的早期测试用户！`);
+        const mailtoLink = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+        
+        // 打开邮件客户端
+        window.location.href = mailtoLink;
+        
+        // 同时保存到本地存储用于跟踪
+        let collectedEmails = JSON.parse(localStorage.getItem('focuspal_emails') || '[]');
+        if (!collectedEmails.includes(userEmail)) {
+            collectedEmails.push(userEmail);
+            localStorage.setItem('focuspal_emails', JSON.stringify(collectedEmails));
+            alert('邮件已准备发送！请在邮件客户端中确认发送。同时我们已记录您的信息。');
+        } else {
+            alert('您已经注册过了！邮件已准备发送。');
+        }
+    };
+    
+    // 也可以按回车提交
+    const emailInput = document.getElementById('email');
+    if (emailInput) {
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                submitEmail();
             }
         });
     }
