@@ -214,7 +214,22 @@
                 <label for="email">加入早期测试计划</label>
                 <div class="input-group">
                     <input type="email" id="email" placeholder="输入你的邮箱地址" required>
-                    <button onclick="saveEmail()">立即加入</button>
+                    <button onclick="
+                        const email = document.getElementById('email').value.trim();
+                        if (!email || !email.includes('@')) {
+                            alert('请输入有效的邮箱地址');
+                            return;
+                        }
+                        let collected = JSON.parse(localStorage.getItem('focuspal_emails') || '[]');
+                        if (!collected.includes(email)) {
+                            collected.push(email);
+                            localStorage.setItem('focuspal_emails', JSON.stringify(collected));
+                            alert('感谢注册！我们会通过 zcycharls@gmail.com 尽快与你联系。');
+                            document.getElementById('email').value = '';
+                        } else {
+                            alert('你已经注册过了！');
+                        }
+                    ">立即加入</button>
                 </div>
                 <p style="font-size: 0.9rem; margin-top: 10px; color: #718096;">提交后我们会通过 zcycharls@gmail.com 联系你！</p>
             </div>
@@ -228,6 +243,6 @@
         </div>
     </div>
 
-    <script src="email-collect.js"></script>
+    <!-- 邮箱收集功能已内联到HTML中 -->
 </body>
 </html>
